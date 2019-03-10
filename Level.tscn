@@ -34,8 +34,8 @@ curve = SubResource( 1 )
 
 [node name="CannonSpawnLocation" type="PathFollow2D" parent="CannonPath" index="0"]
 
-position = Vector2( 40, 720 )
-rotation = -1.55245e-05
+position = Vector2( 50, 720 )
+rotation = -3.12944e-05
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -44,16 +44,11 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="BallTimer" type="Timer" parent="." index="1"]
+[node name="Cannon" parent="." index="1" instance=ExtResource( 3 )]
 
-process_mode = 1
-wait_time = 0.1
-one_shot = true
-autostart = false
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Pickable", "Transform" ]
 
-[node name="Cannon" parent="." index="2" instance=ExtResource( 3 )]
-
-[node name="Wall" type="Node2D" parent="." index="3"]
+[node name="Wall" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
 position = Vector2( 670, 360 )
@@ -73,9 +68,9 @@ bounce = 0.0
 build_mode = 0
 polygon = PoolVector2Array( -680, -370, 620, -370, 620, 370, -680, 370, -680, -360, -670, -360, -670, 360, 610, 360, 610, -360, -680, -360 )
 
-[node name="Target" parent="." index="4" instance=ExtResource( 4 )]
+[node name="Target" parent="." index="3" instance=ExtResource( 4 )]
 
-[node name="Music" type="AudioStreamPlayer" parent="." index="5"]
+[node name="Music" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 5 )
 volume_db = 0.0
@@ -83,8 +78,6 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-
-[connection signal="timeout" from="BallTimer" to="." method="_on_BallTimer_timeout"]
 
 [connection signal="hit" from="Target" to="." method="_on_Target_hit"]
 
