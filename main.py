@@ -4,9 +4,6 @@ from modules.states import *
 from modules.colors import *
 from modules.engine import *
 from modules.world import World
-from modules.cannon import Cannon
-from modules.target import Target
-from modules.obstacle import Obstacle
 
 # Initialize
 pygame.init()
