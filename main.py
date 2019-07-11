@@ -60,12 +60,17 @@ while True:
                     direction = 1
                 else:
                     direction = -1
+                    # Kaboom
+            elif event.key == pygame.K_SPACE:
+                world.cannon.balls[-1].direction = world.cannon.gun_rotation
+                world.cannon.balls[-1].location = world.cannon.gun.center
+                world.cannon.balls[-1].fire()
+
         elif event.type == pygame.KEYUP:
             direction = 0
-    
+
     if direction != 0:
         world.cannon.gun.rotate(direction * 0.05)
-    
 
     # checkCollision()
     refresh()
